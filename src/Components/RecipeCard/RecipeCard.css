@@ -1,0 +1,29 @@
+.recipe-card {
+    width: 240px;
+    background-color: #5B9AD3;
+    margin-right: 0px;
+    padding-right: 0px;
+    overflow:visible;
+    box-shadow: 0px 2px 10px 0px black;
+    border-radius: 3%;
+}
+
+.recipe-card-image {
+    height: 200px;
+    width: 240px;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+}
+
+.recipe-card-text {
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 5px 30px;
+}
+.recipe-card-sub-text {
+    margin-left: 3%;
+    color: white;
+}

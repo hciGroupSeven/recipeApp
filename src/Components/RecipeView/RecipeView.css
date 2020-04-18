@@ -1,0 +1,29 @@
+.recipe-container {
+    width: 100vw;
+    height:100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.recipes {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.recipe-search-container {
+    margin: auto;
+    width: 50%;
+}
+
+.recipe-col {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.recipe-col-final {
+    margin-left: 5%;
+}

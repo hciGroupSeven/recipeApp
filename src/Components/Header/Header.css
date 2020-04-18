@@ -1,0 +1,30 @@
+.header-container {
+    padding:0;
+    margin:0;
+    width: 100%;
+    background-color: #5B9AD3;
+    height: 7vh;
+    border-bottom: 1px solid black;
+}
+
+.header-logo {
+    margin-left: 3vh;
+    width: 7vh;
+    height: 7vh;
+}
+
+.header-text {
+    margin-left: 3vh;
+    align-self: center;
+    text-align: center;
+    font-size: 4vh;
+    color: white;
+}
+
+.header-profile {
+    margin-top: 0.5vh;
+    margin-left: auto;
+    margin-right: 2vw;
+    width: 6vh;
+    height: 6vh;
+}
