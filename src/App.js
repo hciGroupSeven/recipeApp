@@ -4,7 +4,9 @@ import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-rout
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Home from './Views/Home/Home'
+import Home from './Views/Home/Home';
+import Recipe from './Views/Recipe/Recipe';
+
 function App() {
   /*return (
     <div className='App'>
@@ -34,6 +36,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/home" component={Home} />
+        <Route path="/recipe/:name" component={Recipe} />
       </Switch>
     </Router>
   )
