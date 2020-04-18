@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Home from './Views/Home/Home';
+import Recipe from './Views/Recipe/Recipe';
 
 function App() {
-  return (
+  /*return (
     <div className='App'>
       <header className='App-header'>
         <Container fluid>
@@ -27,7 +30,16 @@ function App() {
         </Col>
       </Row>
     </div>
-  );
+  );*/
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/home" component={Home} />
+        <Route path="/recipe/:name" component={Recipe} />
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;
