@@ -26,18 +26,6 @@ class Recipe extends React.Component {
         })
     }
 
-    // renderIngredients = () => {
-    //     return (
-    //         <div>
-    //             {this.state.recipe.ingredients.forEach((element) => {
-    //                 console.log(element)
-    //                 return (
-    //                     <li>{element}</li>
-    //                 )
-    //             })}
-    //         </div>
-    //     )
-    // }
 
     render() {
         console.log(this.state)
@@ -65,7 +53,6 @@ class Recipe extends React.Component {
                             <Button variant="primary" className="button">Splitscreen</Button>
                         </Row>
                         <Row className="recipe-header">
-                            {/* for pic and title */}
                             <Col><img src={recipe.image} className="recipe-image" /></Col>
                             <Col>
                                 <h3>{recipe.name}</h3>
