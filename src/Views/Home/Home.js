@@ -75,7 +75,7 @@ class Home extends React.Component {
                 onHide={() => this.setState({ showModal: false })}
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <Modal.Title>Add Folder</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <form>
