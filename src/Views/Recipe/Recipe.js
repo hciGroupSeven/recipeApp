@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, Container, Row, Col, Card } from 'react-bootstrap';
+import { Button, Container, Row, Col, Modal, Form, Alert } from 'react-bootstrap';
 import style from './Recipe.css';
 import Header from '../../Components/Header/Header';
 import { faArrowLeft, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import SplitScreenRecipeView from '../../Components/SplitScreenRecipeView/SplitScreenRecipeView';
+import facebook from '../../Assets/facebook.png';
+import twitter from '../../Assets/twitter.png';
+import pinterest from '../../Assets/pinterest.png';
+
 
 class Recipe extends React.Component {
   constructor(props) {
@@ -17,6 +21,10 @@ class Recipe extends React.Component {
       directions: [],
       splitScreen: false,
       secondRecipe: {},
+      showModal: false,
+      showAlert: false,
+      showAlertCopy: false,
+      email: '',
     };
   }
 
@@ -101,7 +109,11 @@ class Recipe extends React.Component {
                       <Button variant='primary' className='button'>
                         Edit
                       </Button>
-                      <Button variant='primary' className='button'>
+                      <Button 
+                        variant='primary' 
+                        className='button'
+                        onClick={() => this.setState({ showModal: true })}
+                      >
                         Share
                       </Button>
                       <Button
@@ -114,6 +126,105 @@ class Recipe extends React.Component {
                     </Col>
                   </Row>
                 )}
+
+                <Modal
+                    show={this.state.showModal}
+                    onHide={() => this.setState({ showModal: false, showAlert: false, showAlertCopy: false })}
+                    centered
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Share with others</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Alert 
+                            dismissible 
+                            variant="success" 
+                            show={this.state.showAlert}
+                            onClose={() => this.setState({ showAlert: false })}
+                        >
+                            <p>Shared successfully!</p>
+                        </Alert>
+                        <Alert 
+                            dismissible 
+                            variant="success" 
+                            show={this.state.showAlertCopy}
+                            onClose={() => this.setState({ showAlertCopy: false })}
+                        >
+                            <p>Copied link successfully!</p>
+                        </Alert>
+                        <Form>
+                            <Row>
+                                <Col>
+                                    <Form.Control 
+                                        type='email' 
+                                        placeholder="name@example.com" 
+                                        value={this.state.email}
+                                        onChange={(event) => {
+                                            this.setState({ email: event.target.value });
+                                        }}
+                                    />
+                                </Col>
+                                <Col sm={3}>
+                                    <Button 
+                                        variant='primary'
+                                        onClick={(event) => {
+                                            this.setState({ email: '', showAlert: true })
+                                        }}
+                                    >
+                                        Share</Button>
+                                </Col>
+                            </Row>
+                            <br />
+                            <Row>
+                                <img 
+                                    src={facebook} 
+                                    className='social-button' 
+                                    onClick={(event) => {
+                                        this.setState({ showAlert: true })
+                                    }}
+                                />
+                                <img 
+                                    src={twitter} 
+                                    className='social-button'
+                                    onClick={(event) => {
+                                        this.setState({ showAlert: true })
+                                    }}
+                                />
+                                <img 
+                                    src={pinterest} 
+                                    className='social-button'
+                                    onClick={(event) => {
+                                        this.setState({ showAlert: true })
+                                    }}
+                                />
+                            </Row>
+                            <br />
+                            <Row>
+                                <Col>
+                                    <Form.Control readOnly type='text' placeholder={"GoodCookin.com/" + recipe.name} />
+                                </Col>
+                                <Col sm={3}>
+                                    <Button 
+                                        variant='primary'
+                                        onClick={(event) => {
+                                            this.setState({ email: '', showAlertCopy: true })
+                                        }}
+                                    >
+                                        Copy</Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button
+                            variant='secondary'
+                            onClick={() => this.setState({ showModal: false, showAlert: false, showAlertCopy: false })}
+                        >
+                            Done
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
+
                 <Row className='recipe-header'>
                   <Col>
                     <img src={recipe.image} className='recipe-image' />
