@@ -1,30 +1,30 @@
 .recipe-image {
-    height: 200px;
+  height: 200px;
 }
 
 .container {
-    height: 100%;
-    text-align: center;
-    overflow: hidden;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
 }
 
 .recipe-container {
-    display: inline-block;
-    height: 98%;
-    width: 80%;
-    text-align: left;
-    padding: 15px;
+  display: inline-block;
+  height: 98%;
+  width: 80%;
+  text-align: left;
+  padding: 15px;
 }
 
 .button-bar {
-    float: right;
+  /* float: right; */
 }
 
 .button {
-    margin: 5px;
+  margin: 5px;
 }
 
 .recipe-header {
-    margin-top: 80px;
-    margin-bottom: 20px;
+  margin-top: 80px;
+  margin-bottom: 20px;
 }
