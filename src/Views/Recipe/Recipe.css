@@ -11,7 +11,7 @@
 .recipe-container {
   display: inline-block;
   height: 98%;
-  width: 80%;
+  width: 90%;
   text-align: left;
   padding: 15px;
 }
@@ -27,4 +27,12 @@
 .recipe-header {
   margin-top: 80px;
   margin-bottom: 20px;
+}
+
+.x {
+  float: right;
+}
+
+.rightScreen {
+  border-left: 1px solid black;
 }
