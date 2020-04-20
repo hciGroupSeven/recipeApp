@@ -9,16 +9,17 @@
 }
 
 .recipe-container {
+  overflow: scroll;
   display: inline-block;
-  height: 98%;
-  width: 90%;
+  height: 90vh;
+  width: 100%;
   text-align: left;
   padding: 15px;
 }
 
-.button-bar {
-  /* float: right; */
-}
+/* .button-bar {
+  float: right;
+} */
 
 .button {
   margin: 5px;
