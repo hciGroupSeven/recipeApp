@@ -6,6 +6,7 @@ import { faArrowLeft, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import SplitScreenRecipeView from '../../Components/SplitScreenRecipeView/SplitScreenRecipeView';
+import EditRecipe from '../../Components/EditRecipe/EditRecipe';
 
 class Recipe extends React.Component {
   constructor(props) {
@@ -98,7 +99,7 @@ class Recipe extends React.Component {
                     </Col>
                     <Col></Col>
                     <Col>
-                      <Button variant='primary' className='button'>
+                      <Button variant='primary' className='button' onClick={() => { this.setState({ EditRecipe: true }) }}>
                         Edit
                       </Button>
                       <Button variant='primary' className='button'>
