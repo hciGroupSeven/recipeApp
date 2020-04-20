@@ -1,9 +1,5 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup'
+import { Container, Row, Col, Form, InputGroup, Button, Modal, Alert } from 'react-bootstrap';
 import style from './RecipeView.css';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,6 +16,10 @@ export default class RecipeView extends React.Component {
             search: "",
             recipes: recipeData,
             currFolder: this.props.currentFolder,
+            showModal: false,
+            showAlert: false,
+            sharedWith: ["erika@gmail.com", "justin@gmail.com", "danielle@gmail.com", "oliver@gmail.com"],
+            email: '',
         }
     }
 
@@ -74,8 +74,74 @@ export default class RecipeView extends React.Component {
 
     render() {
 
+        const sharedWith = this.state.sharedWith.map((element) => (
+            <li>{element}</li>
+        ));
+
         return (
             <Container fluid className="recipe-container">
+                <Button 
+                    variant='primary' 
+                    className='share-button'
+                    hidden={this.state.currFolder==="All"}
+                    onClick={() => this.setState({ showModal: true })}
+                >
+                    Share
+                </Button>
+                <Modal
+                    show={this.state.showModal}
+                    onHide={() => this.setState({ showModal: false, showAlert: false })}
+                    centered
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Share folder with others</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Alert 
+                            dismissible 
+                            variant="success" 
+                            show={this.state.showAlert}
+                            onClose={() => this.setState({ showAlert: false })}
+                        >
+                            <p>Shared successfully!</p>
+                        </Alert>
+                        <p>Sharing this folder with others allows them to view, add, and edit the contents of the folder.</p>
+                        <h6 hidden={this.state.currFolder!=="Thanksgiving '20"}>Shared with:</h6>
+                        <ul hidden={this.state.currFolder!=="Thanksgiving '20"}>{sharedWith}</ul>
+                        <Form>
+                            <Row>
+                                <Col>
+                                    <Form.Control 
+                                        type='email' 
+                                        placeholder="Enter email address..." 
+                                        value={this.state.email}
+                                        onChange={(event) => {
+                                            this.setState({ email: event.target.value });
+                                        }}
+                                    />
+                                </Col>
+                                <Col sm={3}>
+                                    <Button 
+                                        variant='primary'
+                                        onClick={(event) => {
+                                            this.state.sharedWith.push(this.state.email)
+                                            this.setState({ email: '', showAlert: true })
+                                        }}
+                                    >
+                                        Share</Button>
+                                </Col>
+                            </Row>
+                        </Form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button
+                            variant='secondary'
+                            onClick={() => this.setState({ showModal: false, showAlert: false })}
+                        >
+                            Done
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
                 <div className="recipe-search-container">
                     <Form.Row>
                         <Form.Group as={Col}>
