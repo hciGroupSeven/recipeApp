@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Redirect, Link} from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+  Link,
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Home from './Views/Home/Home';
 import Recipe from './Views/Recipe/Recipe';
+import Login from './Views/Login/Login';
 
 function App() {
   /*return (
@@ -35,11 +42,12 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/home" component={Home} />
-        <Route path="/recipe/:name" component={Recipe} />
+        <Route exact path='/' component={Login} />
+        <Route exact path='/home' component={Home} />
+        <Route path='/recipe/:name' component={Recipe} />
       </Switch>
     </Router>
-  )
+  );
 }
 
 export default App;
