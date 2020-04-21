@@ -12,6 +12,7 @@ import Header from '../../Components/Header/Header';
 import { faArrowLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import recipeData from '../../Data/recipes';
 
 class EditRecipe extends React.Component {
   constructor(props) {
@@ -28,6 +29,24 @@ class EditRecipe extends React.Component {
       directions: ['', '', ''],
       notes: '',
     };
+  }
+
+  addRecipeByURL = () => {
+    // Use this recipe !!!
+    // https://www.foodnetwork.com/recipes/tyler-florence/mashed-potatoes-recipe-1943035
+
+    this.setState({
+      name: 'Mashed Potatoes',
+      time: '35 min',
+      difficulty: 'Easy',
+      calories: '',
+      servings: '6 to 8',
+      image: 'https://food.fnr.sndimg.com/content/dam/images/food/fullset/2008/9/3/0/mashedpotatoes_s4x3.jpg.rend.hgtvcom.826.620.suffix/1384541148269.jpeg',
+      description: '',
+      ingredients: [' 4 pounds golden creamer potatoes, peeled and cut into quarters', '1 bay leaf', 'Kosher salt and freshly ground black pepper', '2 cups heavy cream', '3 tablespoons unsalted butter', '2 tablespoons chopped chives'],
+      directions: ['Put the potatoes into a large pot, add the bay leaf, 2 tablespoons salt, and cover with cold water. Bring to a boil over medium-high heat and cook until the potatoes are tender, about 20 minutes. Drain them well and remove the bay leaf. Meanwhile, heat the cream and butter in a small saucepan. Put the potatoes through a ricer or food mill into a bowl. Add the hot cream and season with salt and pepper. Mix together with a spoon and add the chives.'],
+      notes: '',
+    });
   }
 
   //   saveData = () => {
@@ -108,7 +127,8 @@ class EditRecipe extends React.Component {
                         <Form.Control
                           type='text'
                           placeholder='Drag URL here...'
-                          onChange={() => {}}
+                          // onChange={() => this.addRecipeByURL()}
+                          onKeyPress={() => this.addRecipeByURL()}
                         />
                       </InputGroup>
                     </Form.Group>
@@ -235,7 +255,19 @@ class EditRecipe extends React.Component {
                 }}
                 style={{ textDecoration: 'none' }}
               >
-                <Button variant='primary' onClick={() => {}}>
+                <Button variant='primary' onClick={() => { 
+                  recipeData.push({ 
+                    name: this.state.name,
+                    time: this.state.time,
+                    difficulty: this.state.difficulty,
+                    calories: this.state.calories,
+                    servings: this.state.servings,
+                    image: this.state.image,
+                    description: this.state.description,
+                    ingredients: this.state.ingredients,
+                    directions: this.state.directions,
+                    notes: this.state.notes,
+                   }) }}>
                   Save
                 </Button>
                 {/* <FontAwesomeIcon
