@@ -9,7 +9,7 @@ import {
   InputGroup,
 } from 'react-bootstrap';
 import Header from '../../Components/Header/Header';
-import { faArrowLeft, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faSave } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
@@ -30,10 +30,11 @@ class EditRecipe extends React.Component {
     };
   }
 
-  saveData = () => {
-    console.log(this.state);
-    // this.props.update(this.state);
-  };
+  //   saveData = () => {
+  //     // console.log(this.state);
+  //     this.props.history.push('/recipe/');
+  //     // this.props.update(this.state);
+  //   };
 
   render() {
     const ingredients = this.state.ingredients.map((element, key) => (
@@ -227,9 +228,23 @@ class EditRecipe extends React.Component {
                   }}
                 />
               </p>
-              <Button variant='primary' onClick={() => this.saveData()}>
-                Save
-              </Button>
+              <Link
+                to={{
+                  pathname: '/recipe/' + this.state.name,
+                  state: { recipe: this.state },
+                }}
+                style={{ textDecoration: 'none' }}
+              >
+                <Button variant='primary' onClick={() => {}}>
+                  Save
+                </Button>
+                {/* <FontAwesomeIcon
+                  onClick={() => {}}
+                  icon={faSave}
+                  size='3x'
+                  color='black'
+                /> */}
+              </Link>
             </div>
           </Col>
           <Col md={2}></Col>
