@@ -19,6 +19,7 @@
     margin-left: 10%;
     width: 15%;
     height: 15%;
+    cursor: pointer;
 }
 
 .navbar-text {
@@ -27,6 +28,7 @@
     line-height: 50%;
     font-size: 1.2em;
     text-align: left;
+    cursor: pointer;
 }
 
 .navbar-selected-text {
@@ -46,4 +48,9 @@
     margin: auto;
     height: 98%;
     width: 80%;
+}
+
+.add-recipe-button {
+  margin-top: 110vh;
+  cursor: pointer;
 }

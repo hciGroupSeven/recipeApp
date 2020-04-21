@@ -13,6 +13,7 @@ import Col from 'react-bootstrap/Col';
 import Home from './Views/Home/Home';
 import Recipe from './Views/Recipe/Recipe';
 import Login from './Views/Login/Login';
+import AddRecipe from './Views/AddRecipe/AddRecipe'
 
 function App() {
   /*return (
@@ -45,6 +46,7 @@ function App() {
         <Route exact path='/' component={Login} />
         <Route exact path='/home' component={Home} />
         <Route path='/recipe/:name' component={Recipe} />
+        <Route path='/add-recipe/' component={AddRecipe} />
       </Switch>
     </Router>
   );

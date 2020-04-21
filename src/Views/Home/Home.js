@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,6 +9,8 @@ import folderIcon from '../../Assets/folder-icon.png';
 import Header from '../../Components/Header/Header';
 import RecipeView from '../../Components/RecipeView/RecipeView';
 import Modal from 'react-bootstrap/Modal';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import folderData from '../../Data/folders';
 
@@ -117,6 +120,20 @@ class Home extends React.Component {
             </div>
             <div className='home-recipe-container'>
               <RecipeView currentFolder={this.state.currentFolder} />
+            </div>
+            <div classname="add-recipe-button">
+              <Link
+                  to={{
+                      pathname: '/add-recipe',
+                  }}
+              >
+              <FontAwesomeIcon
+                  onClick={() => {}}
+                  icon={faPlusCircle}
+                  size='3x'
+                  color='#5B99D1'
+              />
+              </Link>
             </div>
           </Row>
         </Container>
