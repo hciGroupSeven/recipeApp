@@ -148,7 +148,9 @@ class EditRecipe extends React.Component {
             <ol>{directions}</ol>
             <h6 hidden={!this.state.notes}>Additional Notes:</h6>
             <p hidden={!this.state.notes}>
-              <input
+              <Form.Control
+                as='textarea'
+                rows='3'
                 type='text'
                 value={this.state.notes}
                 onChange={(event) => {
