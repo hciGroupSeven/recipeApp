@@ -8,8 +8,10 @@ import folderIcon from '../../Assets/folder-icon.png';
 import Header from '../../Components/Header/Header';
 import RecipeView from '../../Components/RecipeView/RecipeView';
 import Modal from 'react-bootstrap/Modal';
-
 import folderData from '../../Data/folders';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   constructor(props) {
@@ -117,6 +119,15 @@ class Home extends React.Component {
             </div>
             <div className='home-recipe-container'>
               <RecipeView currentFolder={this.state.currentFolder} />
+            </div>
+            <div className='plus-button'>
+              <Link
+                to={{
+                  pathname: '/addRecipe',
+                }}
+              >
+                <FontAwesomeIcon icon={faPlus} size='3x' color='black' />
+              </Link>
             </div>
           </Row>
         </Container>
